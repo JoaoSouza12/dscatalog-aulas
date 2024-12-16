@@ -10,6 +10,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,10 +29,9 @@ public class CategoryService {
     private CategoryRepository repository;
 
     @Transactional(readOnly = true)
-    public List<CategoryDTO> findAll() {
-        List<Category> list = repository.findAll();
-        return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
-
+    public Page<CategoryDTO> findAllPaged(PageRequest pageRequest) {
+        Page<Category> list = repository.findAll(pageRequest);
+        return list.map(x -> new CategoryDTO(x));
     }
     @Transactional
     public CategoryDTO insert(CategoryDTO dto) {
@@ -53,13 +54,14 @@ public class CategoryService {
     }
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
+        if (!repository.existsById(id)) {
+            throw new EntityNotFoundException("Category not found. Id: " + id);
+        }
         try {
-            repository.deleteById(id);
-            if (!repository.existsById(id)) { // Verifica se o ID existe
-                throw new ResourceNotFoundException("Id not found " + id);
-            }
+            repository.deleteById(id); // Exclui a entidade pelo repositório
         } catch (DataIntegrityViolationException e) {
-            throw new DatabaseException("Integrity violation");
+            throw new DatabaseException("Integrity violation - Cannot delete the category because it is associated with other entities");
         }
     }
+
 }

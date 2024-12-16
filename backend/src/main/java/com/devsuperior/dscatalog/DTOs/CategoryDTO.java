@@ -1,9 +1,12 @@
 package com.devsuperior.dscatalog.DTOs;
 
 import com.devsuperior.dscatalog.entities.Category;
+import jakarta.validation.Valid;
 
 import java.io.Serializable;
 
+
+@Valid
 public class CategoryDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
