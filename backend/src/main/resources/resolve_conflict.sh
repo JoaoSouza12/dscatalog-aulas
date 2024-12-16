@@ -1,0 +1,1 @@
+git commit -m "Resolvido conflito: arquivo .idea/sqldialects.xml removido"

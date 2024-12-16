@@ -29,5 +29,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+# Arquivos a serem ignorados
+.mvn/git_status.sh
+src/main/resources/resolve_conflict.sh
+
 ### VS Code ###
 .vscode/
