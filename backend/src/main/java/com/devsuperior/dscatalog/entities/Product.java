@@ -14,6 +14,7 @@ public class Product implements Serializable {
     @Id
     private Long id;
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
     private String imgUrl;
@@ -25,6 +26,9 @@ public class Product implements Serializable {
     }
 
     @ManyToMany
+    @JoinTable(name = "tb_product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     Set<Category> categories = new HashSet<>();
 
     public Product(Long id, String name, String description, Double price, String imgUrl, Instant date) {
