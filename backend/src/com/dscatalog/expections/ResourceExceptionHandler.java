@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.expections;
+package com.dscatalog.expections;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

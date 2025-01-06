@@ -1,6 +1,6 @@
-package com.devsuperior.dscatalog.DTOs;
+package com.dscatalog.DTOs;
 
-import com.devsuperior.dscatalog.entities.Category;
+import com.dscatalog.entities.Category;
 import jakarta.validation.Valid;
 
 import java.io.Serializable;

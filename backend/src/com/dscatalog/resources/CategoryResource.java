@@ -1,34 +1,26 @@
-package com.devsuperior.dscatalog.resources;
+package com.dscatalog.resources;
 
-import com.devsuperior.dscatalog.DTOs.CategoryDTO;
-import com.devsuperior.dscatalog.entities.Category;
-import com.devsuperior.dscatalog.services.CategoryService;
+import com.dscatalog.DTOs.CategoryDTO;
+import com.dscatalog.services.CategoryService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.ScrollPosition;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @RestController
 @RequestMapping(value = "/categories")
-public class categoryResource {
+public class CategoryResource {
 
     @Autowired
     private CategoryService service;
-
 
     @GetMapping
     public ResponseEntity<Page<CategoryDTO>> findAll(
@@ -45,13 +37,15 @@ public class categoryResource {
         CategoryDTO newDto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newDto.getId()).toUri();
-        return ResponseEntity.created(uri).body(newDto); 
+        return ResponseEntity.created(uri).body(newDto);
     }
+
     @PutMapping(value = "/{id}")
     public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @Valid @RequestBody CategoryDTO dto) {
         CategoryDTO updatedDto = service.update(id, dto);
         return ResponseEntity.ok(updatedDto);
     }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         try {

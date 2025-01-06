@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.expections;
+package com.dscatalog.expections;
 
 import java.time.Instant;
 

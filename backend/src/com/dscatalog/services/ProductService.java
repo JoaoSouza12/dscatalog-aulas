@@ -1,11 +1,11 @@
-package com.devsuperior.dscatalog.services;
+package com.dscatalog.services;
 
 
-import com.devsuperior.dscatalog.DTOs.ProductDTO;
-import com.devsuperior.dscatalog.entities.Product;
-import com.devsuperior.dscatalog.expections.DatabaseException;
-import com.devsuperior.dscatalog.expections.ResourceNotFoundException;
-import com.devsuperior.dscatalog.repositories.ProductRepository;
+import com.dscatalog.DTOs.ProductDTO;
+import com.dscatalog.entities.Product;
+import com.dscatalog.expections.DatabaseException;
+import com.dscatalog.expections.ResourceNotFoundException;
+import com.dscatalog.repositories.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

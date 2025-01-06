@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.expections;
+package com.dscatalog.expections;
 
 public class ResourceNotFoundException extends RuntimeException{
 

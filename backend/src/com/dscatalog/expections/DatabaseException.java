@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.expections;
+package com.dscatalog.expections;
 
 public class  DatabaseException extends RuntimeException {
     private static final long serialVersionUID = 1L;

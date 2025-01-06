@@ -1,7 +1,7 @@
-package com.devsuperior.dscatalog.DTOs;
+package com.dscatalog.DTOs;
 
-import com.devsuperior.dscatalog.entities.Category;
-import com.devsuperior.dscatalog.entities.Product;
+import com.dscatalog.entities.Category;
+import com.dscatalog.entities.Product;
 
 import java.io.Serializable;
 import java.time.Instant;
