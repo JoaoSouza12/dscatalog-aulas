@@ -31,7 +31,7 @@ build/
 
 # Arquivos a serem ignorados
 .mvn/git_status.sh
-src/main/resources/resolve_conflict.sh
+resources/resolve_conflict.sh
 
 ### VS Code ###
 .vscode/
