@@ -1,0 +1,3 @@
+package com.devsuperior.dscatalog.entities;
+
+// ...existing code...
